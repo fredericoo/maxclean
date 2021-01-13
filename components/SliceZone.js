@@ -1,33 +1,76 @@
-import React from 'react';
+import React, { useState, useRef } from "react";
 import {
-  EmailSignup,
-  FullWidthImage,
-  HeadlineWithButton,
-  InfoWithImage,
-  TextInfo,
-} from './slices';
+	Quote,
+	Hero,
+	CardSection,
+	BigCard,
+	TextColumn,
+	ImageSection,
+	Spacer,
+	Heading,
+} from "./slices";
+import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
+import { Popup } from "components/Popup/Popup";
 
 const SliceZone = ({ sliceZone }) => {
-  return (
-    <div className="container">
-      {sliceZone.map((slice, index) => {
-        switch (slice.slice_type) {
-          case 'text_info':
-            return <TextInfo slice={slice} key={`slice-${index}`} />;
-          case 'info_with_image':
-            return <InfoWithImage slice={slice} key={`slice-${index}`} />;
-          case 'full_width_image':
-            return <FullWidthImage slice={slice} key={`slice-${index}`} />;
-          case 'headline_with_button':
-            return <HeadlineWithButton slice={slice} key={`slice-${index}`} />;
-          case 'email_signup':
-            return <EmailSignup slice={slice} key={`slice-${index}`} />;
-          default:
-            return null;
-        }
-      })}
-    </div>
-  );
+	const [popup, setPopup] = useState();
+	let popupRef = useRef();
+	const onPopup = (content) => {
+		setPopup(content);
+		if (content) {
+			disableBodyScroll(popupRef);
+		} else {
+			enableBodyScroll(popupRef);
+		}
+	};
+
+	return (
+		<>
+			{sliceZone.map((slice, index) => {
+				switch (slice.slice_type) {
+					case "hero":
+						return <Hero slice={slice} key={`slice-${index}`} />;
+					case "card_section":
+						return (
+							<CardSection
+								handleCta={onPopup}
+								slice={slice}
+								key={`slice-${index}`}
+							/>
+						);
+					case "big_card":
+						return (
+							<BigCard
+								handleCta={onPopup}
+								slice={slice}
+								key={`slice-${index}`}
+							/>
+						);
+					case "inspirational_quote":
+						return <Quote slice={slice} key={`slice-${index}`} />;
+					case "heading":
+						return <Heading slice={slice} key={`slice-${index}`} />;
+					case "text_column":
+						return <TextColumn slice={slice} key={`slice-${index}`} />;
+					case "image_section":
+						return <ImageSection slice={slice} key={`slice-${index}`} />;
+					case "spacer":
+						return (
+							<Spacer key={`slice-${index}`} height={slice.primary.height} />
+						);
+					default:
+						return null;
+				}
+			})}
+			{popup && (
+				<Popup
+					ref={popupRef}
+					handleClose={() => onPopup(null)}
+					content={popup}
+				/>
+			)}
+		</>
+	);
 };
 
 export default SliceZone;

@@ -1,0 +1,22 @@
+.container {
+	position: fixed;
+	z-index: 100;
+	padding: 8px max(var(--sidebearing), var(--gutter));
+	width: 100%;
+	background: white;
+	// background: rgba(0, 0, 0, 0.4);
+	// backdrop-filter: saturate(180%) blur(20px);
+	// -webkit-backdrop-filter: saturate(180%) blur(20px);
+	display: flex;
+	justify-content: space-between;
+	&:after {
+		content: "";
+		position: absolute;
+		width: 100%;
+		bottom: 0px;
+		height: 1px;
+		left: 0;
+		background: rgba(0, 0, 0, 0.3);
+		opacity: 0.5;
+	}
+}

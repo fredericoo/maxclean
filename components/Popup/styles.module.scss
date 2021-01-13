@@ -1,0 +1,53 @@
+@import "../../styles/abstracts/mixins";
+
+.wrapper {
+	position: fixed;
+	z-index: 101;
+	width: 100vw;
+	min-height: 100vh;
+	top: 0;
+	left: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.inner {
+	max-height: 100vh;
+	overflow-y: scroll;
+	-webkit-overflow-scrolling: touch;
+	@include hide-scrollbar();
+}
+.dim {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	background: var(--colour__main);
+	opacity: 0.8;
+	z-index: -1;
+}
+
+.popup {
+	margin: 25vh 0;
+	position: relative;
+	border-radius: 20px;
+	background: white;
+	width: calc(100vw - calc(var(--gutter)));
+
+	max-width: 800px;
+	.close {
+		width: 32px;
+		height: 32px;
+		background: var(--colour__grey--light);
+		border: none;
+		border-radius: 999px;
+		@include on-event {
+			background: var(--colour__grey);
+		}
+		position: absolute;
+		right: calc(var(--gutter) / 2);
+		top: calc(var(--gutter) / 2);
+	}
+	.body {
+		padding: var(--gutter);
+	}
+}

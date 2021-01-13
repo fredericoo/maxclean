@@ -1,0 +1,24 @@
+.section {
+	position: relative;
+	z-index: 3;
+	padding-top: var(--gutter);
+	padding-bottom: var(--gutter);
+	transform: translateZ(0);
+}
+
+.masonry {
+	grid-column: grid-start / grid-end;
+	display: flex;
+	margin-left: calc(var(--gutter) * -1); /* gutter size offset */
+	width: auto;
+	&__column {
+		padding-left: calc(var(--gutter)); /* gutter size */
+		background-clip: padding-box;
+		&:first-child {
+			margin-top: -15vh;
+		}
+		& > * {
+			margin-bottom: var(--gutter);
+		}
+	}
+}

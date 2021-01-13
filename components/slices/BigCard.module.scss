@@ -1,0 +1,8 @@
+.section {
+	padding-top: var(--gutter);
+	padding-bottom: var(--gutter);
+}
+
+.card {
+	grid-column: col-2 / col-12;
+}

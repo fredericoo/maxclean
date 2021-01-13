@@ -1,0 +1,8 @@
+@import "styles/abstracts/mixins";
+
+.body {
+	grid-column: grid-start / grid-end;
+	@include responsive($tablet-l) {
+		grid-column: col-4 / col-10;
+	}
+}

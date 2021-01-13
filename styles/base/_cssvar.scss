@@ -1,0 +1,31 @@
+:root {
+	--colour__bg: #f0f0f0;
+	--colour__grey: #babfc2;
+	--colour__grey--dark: #9498a0;
+	--colour__grey--light: #f0f0f0;
+	--colour__main: #061128;
+	--colour__accent: #0000ff;
+	--colour__accent--alt: #00203e;
+
+	--container__width: 1140px;
+	--gutter: 1rem;
+	@include breakpoint($tablet-l) {
+		--gutter: 2rem;
+	}
+	--sidebearing: calc((100vw - var(--container__width)) / 2);
+
+	--font__sm: 0.9rem;
+	--font__md: 1rem;
+	--font__lg: 1.2rem;
+	--font__xl: 2rem;
+
+	--trk__5: 0.1em;
+	--trk__4: 0.08em;
+	--trk__3: 0.06em;
+	--trk__2: 0.04em;
+	--trk__1: 0.02em;
+	--trk__n1: -0.02em;
+	--trk__n2: -0.04em;
+
+	--easing: cubic-bezier(0.16, 1, 0.3, 1);
+}

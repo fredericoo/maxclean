@@ -1,0 +1,23 @@
+@import "styles/abstracts/mixins";
+
+.section {
+	margin: 3rem 0;
+}
+.quote,
+.author {
+	grid-column: grid-start / grid-end;
+	@include responsive($tablet-l) {
+		grid-column: col-3 / col-11;
+	}
+	text-align: center;
+}
+.quote {
+	margin: 0 0 2rem;
+	padding: 0;
+	font-weight: bold;
+	color: var(--colour__accent);
+}
+.author {
+	opacity: 0.6;
+	font-style: normal;
+}

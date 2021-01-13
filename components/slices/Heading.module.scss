@@ -1,0 +1,11 @@
+@import "styles/abstracts/mixins";
+
+.body {
+	grid-column: grid-start / grid-end;
+	@include responsive($tablet-l) {
+		grid-column: col-2 / col-12;
+	}
+	margin: 3rem 0;
+	text-align: center;
+	text-transform: uppercase;
+}

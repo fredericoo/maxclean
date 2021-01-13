@@ -1,0 +1,84 @@
+@import "../../styles/abstracts/mixins";
+
+.section {
+	grid-template-rows: min-content min-content;
+	color: var(--colour__bg);
+	position: relative;
+	background: var(--colour__main);
+	z-index: 2;
+
+	.animatedImg {
+		display: block;
+		height: 100%;
+		width: 100%;
+	}
+
+	.img {
+		position: sticky;
+		top: 0px;
+		align-self: start;
+		height: 100vh;
+		grid-column: screen-start / screen-end;
+		grid-row: 1 / -1;
+		z-index: 1;
+		overflow: hidden;
+		opacity: 0.8;
+	}
+
+	.header {
+		position: relative;
+		z-index: 2;
+		padding: 33vh 0;
+		grid-row: 1;
+		transform: translateZ(0);
+		grid-column: grid-start / grid-end;
+		@include responsive($tablet-l) {
+			grid-column: col-3 / span 6;
+		}
+	}
+
+	.body {
+		position: relative;
+		z-index: 2;
+		grid-row: 2;
+		grid-column: grid-start / grid-end;
+		margin-bottom: 33vh;
+		@include responsive($tablet-l) {
+			grid-column: col-3 / span 5;
+		}
+		h2 {
+			margin-bottom: 2rem;
+		}
+		p {
+			// @@extend %t--4;
+		}
+	}
+
+	.businessCard {
+		align-self: start;
+		padding: calc(var(--gutter) / 2);
+		color: var(--colour__main);
+		grid-column: grid-start / grid-end;
+		grid-row: 3;
+		@include responsive($tablet-l) {
+			grid-row: 2;
+			grid-column: col-8 / span 4;
+		}
+		background: var(--colour__bg);
+		border-radius: 0.5rem;
+		dt,
+		dd {
+			display: inline-block;
+		}
+		h3 {
+			// @extend %t--3;
+			font-weight: 600;
+		}
+		dt {
+			font-weight: 600;
+		}
+		dd {
+			color: #666;
+		}
+	}
+}

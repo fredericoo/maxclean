@@ -4,7 +4,7 @@ import { homepageToolbarDocs } from "utils/prismicToolbarQueries";
 import useUpdatePreviewRef from "utils/hooks/useUpdatePreviewRef";
 import useUpdateToolbarDocs from "utils/hooks/useUpdateToolbarDocs";
 import { Layout, SliceZone } from "components";
-
+import { NextSeo } from "next-seo";
 /**
  * Homepage component
  */
@@ -22,6 +22,24 @@ const Homepage = ({ doc, menu, lang, preview }) => {
 				menu={menu}
 				isPreview={preview.isActive}
 			>
+				<NextSeo
+					title="Maxclean Ambientaal"
+					description=""
+					openGraph={{
+						type: "website",
+						url: "https://maxcleanambiental.com.br",
+						title: "Maxclean Ambiental",
+						description: "",
+						images: [
+							{
+								url: "https://www.example.ie/og-image.jpg",
+								width: 800,
+								height: 600,
+								alt: "Og Image Alt",
+							},
+						],
+					}}
+				/>
 				<SliceZone sliceZone={doc.data.body} />
 			</Layout>
 		);

@@ -1,31 +1,38 @@
-import React from 'react'
-import DocLink from 'components/DocLink'
-import styles from './Button.module.scss'
+import React from "react";
+import DocLink from "components/DocLink";
+import styles from "./Button.module.scss";
 
-export default function Button({ children, className, link, staticLink, secondary }) {
-  const secondaryClass = secondary ? styles.secondary : null
+const NormalLink = ({ children, ...props }) => <a {...props}>{children}</a>;
+const NormalButton = ({ children, ...props }) => (
+	<button type="button" {...props}>
+		{children}
+	</button>
+);
 
-  if (link) {
-    return (
-      <DocLink
-        link={link}
-        linkClass={`${styles.button} ${className} ${secondaryClass}`.trim()}
-      >
-        {children}
-      </DocLink>
-    )
-  }
+export default function Button({
+	children,
+	className,
+	link,
+	staticLink,
+	onClick,
+	secondary,
+}) {
+	const secondaryClass = secondary ? styles.secondary : null;
 
-  if (staticLink) {
-    return (
-      <a
-        href={staticLink}
-        className={`${styles.button} ${className} ${secondaryClass}`.trim()}
-      >
-        {children}
-      </a>
-    )
-  }
+	const LinkTag = link ? DocLink : onClick ? NormalButton : NormalLink;
+	const classNames = `${styles.button} ${className && className} ${
+		secondaryClass && secondaryClass
+	}`.trim();
 
-  return null
+	return (
+		<LinkTag
+			link={link}
+			href={staticLink}
+			onClick={onClick}
+			linkClass={classNames}
+			className={classNames}
+		>
+			{children}
+		</LinkTag>
+	);
 }

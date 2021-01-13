@@ -1,48 +1,51 @@
 @mixin svg-color($color) {
-  svg,
-  svg rect,
-  svg path,
-  svg polygon {
-    fill: $color;
-    opacity: 1;
-    fill-opacity: 1;
-  }
+	svg,
+	svg rect,
+	svg path,
+	svg polygon {
+		fill: $color;
+		opacity: 1;
+		fill-opacity: 1;
+	}
 }
 
 .button {
-  display: inline-flex;
-  min-width: 120px;
-  margin-right: 20px; 
-  margin-bottom: 20px; 
-  padding: 10px 20px;
-  box-sizing: border-box;
+	display: inline-flex;
+	min-width: 120px;
+	padding: 0.8em 1.618em;
+	box-sizing: border-box;
 
-  align-items: baseline;
-  justify-content: center;
+	align-items: baseline;
+	justify-content: center;
 
-  font-size: 14px;
-  line-height: 17px;
-  font-weight: 600;
-  text-decoration: none;
-  color: #262629;
-  @include svg-color(#262629);
+	font-size: 1rem;
+	line-height: 1;
+	font-weight: 700;
+	letter-spacing: -0.04em;
 
-  border: 1px solid #262629;
-  border-radius: 4px;
+	text-decoration: none;
+	background: var(--colour__accent--alt);
+	color: var(--colour__grey);
 
-  &:hover {
-    border-color: #3F3F43;
-    color: #3F3F43;
-    @include svg-color(#3F3F43);
-  }
+	border: 1px solid var(--colour__grey--dark);
+	border-radius: 2rem;
+	box-shadow: none;
 
-  &.secondary {
-    color: #ffffff;
-    background-color: #262629;
-    @include svg-color(#ffffff);
+	&:hover {
+		text-decoration: none;
+		// background: var(--colour__bg);
+		color: var(--colour__bg);
 
-    &:hover {
-      background-color: #3F3F43;
-    }
-  }
+		// border-color: var(--colour__accent--alt);
+	}
+
+	&.secondary {
+		color: #ffffff;
+		background-color: #262629;
+		@include svg-color(#ffffff);
+
+		&:hover {
+			background-color: #3f3f43;
+		}
+	}
 }
