@@ -23,6 +23,7 @@ export default function Card({ item, handleCta }) {
 						src={item.image.url}
 						width={item.image.dimensions.width}
 						height={item.image.dimensions.height}
+						layout="responsive"
 					/>
 				</div>
 			)}
@@ -31,15 +32,23 @@ export default function Card({ item, handleCta }) {
 				{RichText.render(item.bodytext)}
 			</div>
 			<div className={styles["card__cta"]}>
-				<Button
-					onClick={(e) => {
-						e.preventDefault;
-						handleCta(item.popup);
-					}}
-					type="button"
-				>
-					{item.cta_text}
-				</Button>
+				{item.link && item.link.slug ? (
+					<Button link={item.link} type="link">
+						{item.cta_text}
+					</Button>
+				) : (
+					item.popup[0]?.text && (
+						<Button
+							onClick={(e) => {
+								e.preventDefault;
+								handleCta(item.popup);
+							}}
+							type="button"
+						>
+							{item.cta_text}
+						</Button>
+					)
+				)}
 			</div>
 		</article>
 	);

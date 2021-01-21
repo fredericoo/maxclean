@@ -1,0 +1,13 @@
+.menu {
+	display: flex;
+}
+
+.item {
+	opacity: 0.5;
+	&.active {
+		opacity: 1;
+	}
+	a {
+		padding: 0.618em;
+	}
+}

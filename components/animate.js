@@ -15,5 +15,5 @@ export const enlargeUponScroll = (elem, trigger) => {
 			// pinSpacing: false,
 		},
 	});
-	tl.fromTo(elem, { opacity: 0.5 }, { opacity: 0.8, scale: 1.1, ease: "none" });
+	tl.fromTo(elem, { opacity: 0.8 }, { opacity: 0.4, scale: 1.1, ease: "none" });
 };

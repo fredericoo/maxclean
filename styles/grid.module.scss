@@ -2,11 +2,11 @@
 
 .col {
 	display: grid;
-	column-gap: calc(var(--gutter) / 2);
+	// column-gap: calc(var(--gutter) / 2);
 
-	@include responsive($tablet-p) {
-		column-gap: var(--gutter);
-	}
+	// @include responsive($tablet-p) {
+	column-gap: var(--gutter);
+	// }
 
 	grid-template-columns:
 		[screen-start] var(--sidebearing)
@@ -17,14 +17,15 @@
 }
 
 .inner {
-	--colGap: calc(var(--gutter) / 2);
-	@include responsive($tablet-p) {
-		--colGap: var(--gutter);
-	}
+	column-gap: var(--gutter);
+
 	display: grid;
-	column-gap: var(--colGap);
-	padding: 0 max(var(--colGap), calc(var(--sidebearing) + var(--colGap)));
+	padding: 0 max(var(--gutter), calc(var(--sidebearing) + var(--gutter)));
 	grid-template-columns: [screen-start grid-start col-1] 1fr [col-2] 1fr [col-3] 1fr [col-4] 1fr [col-5] 1fr [col-6] 1fr [col-7] 1fr [col-8] 1fr [col-9] 1fr [col-10] 1fr [col-11] 1fr [col-12] 1fr [grid-end screen-end];
+}
+
+.container {
+	padding: 0 max(var(--gutter), calc(var(--sidebearing) + var(--gutter)));
 }
 
 %grid {

@@ -10,6 +10,6 @@ module.exports = {
 		defaultLocale: "pt-br",
 	},
 	images: {
-		domains: ["images.prismic.io"],
+		domains: ["images.prismic.io", "maxclean.cdn.prismic.io"],
 	},
 };

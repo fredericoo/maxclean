@@ -8,12 +8,10 @@ export default function Quote({ slice }) {
 		<section className={`${styles.section} ${grid.col}`}>
 			<blockquote className={`${styles.quote} t--2`}>
 				<AnimateText
-					propsFrom={{ yPercent: 20 }}
 					propsTo={{
 						color: "#000000",
 						duration: 2,
 						stagger: 0.02,
-						yPercent: 0,
 					}}
 					scrub
 					text={RichText.asText(slice.primary.quote)}

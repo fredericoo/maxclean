@@ -7,7 +7,7 @@ export default function ImageSection({ slice }) {
 		<section className={`${styles.section} ${grid.col}`}>
 			<figure
 				className={`${styles.image} ${
-					slice.primary.full_width ? styles["image--full-width"] : ""
+					slice.primary.size ? styles[`size-${slice.primary.size}`] : ""
 				}`}
 			>
 				<Image

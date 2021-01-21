@@ -1,8 +1,14 @@
 @import "styles/abstracts/mixins";
 
-.image {
+.size-small {
 	grid-column: grid-start / grid-end;
-	&--full-width {
-		grid-column: screen-start / screen-end;
+	@include responsive($tablet-l) {
+		grid-column: col-4 / col-10;
 	}
+}
+.size-medium {
+	grid-column: grid-start / grid-end;
+}
+.size-large {
+	grid-column: screen-start / screen-end;
 }

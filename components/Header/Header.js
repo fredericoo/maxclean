@@ -13,7 +13,7 @@ const Header = ({ menu, altLangs }) => (
 			</NextLink>
 		</div>
 		<ul className={navbar.menu}>
-			<Navigation menu={menu} />
+			<Navigation menu={menu.data.menu_links} />
 			<LanguageSwitcher altLangs={altLangs} />
 		</ul>
 	</header>

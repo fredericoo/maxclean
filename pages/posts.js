@@ -5,41 +5,14 @@ import useUpdatePreviewRef from "utils/hooks/useUpdatePreviewRef";
 import useUpdateToolbarDocs from "utils/hooks/useUpdateToolbarDocs";
 import { Layout, SliceZone } from "components";
 import Meta from "components/Meta/Meta";
+import Articles from "components/Articles/Articles";
 /**
  * Homepage component
  */
-const Homepage = ({ doc, menu, lang, preview }) => {
-	if (doc && doc.data) {
-		useUpdatePreviewRef(preview, doc.id);
-		useUpdateToolbarDocs(homepageToolbarDocs(preview.activeRef, doc.lang), [
-			doc,
-		]);
-
-		return (
-			<Layout
-				altLangs={doc.alternate_languages}
-				lang={lang}
-				menu={menu}
-				isPreview={preview.isActive}
-			>
-				<Meta
-					pageTitle={"Maxclean Ambiental"}
-					pageDesc={
-						"Somos uma empresa mineira com mais de 20 anos de atuação nas áreas de pesquisa, desenvolvimento, fabricação e comercialização de produtos e serviços inovadores, voltados para ambientes industriais."
-					}
-				/>
-				<SliceZone sliceZone={doc.data.body} />
-			</Layout>
-		);
-	}
+const Posts = ({ menu, lang, preview }) => {
 	return (
-		<Layout
-			altLangs={doc.alternate_languages}
-			lang={lang}
-			menu={menu}
-			isPreview={preview.isActive}
-		>
-			Nothing loaded
+		<Layout lang={lang} menu={menu} isPreview={preview.isActive}>
+			<Articles perPage={9} />
 		</Layout>
 	);
 };
@@ -53,11 +26,7 @@ export async function getStaticProps({
 	const ref = previewData ? previewData.ref : null;
 	const isPreview = preview || false;
 	const client = Client();
-	const doc =
-		(await client.getSingle(
-			"homepage",
-			ref ? { ref, lang: locale } : { lang: locale }
-		)) || {};
+
 	const menu =
 		(await client.getSingle(
 			"top_menu",
@@ -69,7 +38,6 @@ export async function getStaticProps({
 	return {
 		props: {
 			menu,
-			doc,
 			preview: {
 				isActive: isPreview,
 				activeRef: ref,
@@ -82,4 +50,4 @@ export async function getStaticProps({
 	};
 }
 
-export default Homepage;
+export default Posts;
