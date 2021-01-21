@@ -6,3 +6,4 @@ export { default as TextColumn } from "./TextColumn";
 export { default as ImageSection } from "./ImageSection";
 export { default as Spacer } from "./Spacer";
 export { default as Heading } from "./Heading";
+export { default as Posts } from "./Posts";

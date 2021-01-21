@@ -8,6 +8,7 @@ import {
 	ImageSection,
 	Spacer,
 	Heading,
+	Posts,
 } from "./slices";
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
 import { Popup } from "components/Popup/Popup";
@@ -58,6 +59,8 @@ const SliceZone = ({ sliceZone }) => {
 						return (
 							<Spacer key={`slice-${index}`} height={slice.primary.height} />
 						);
+					case "posts":
+						return <Posts key={`slice-${index}`} slice={slice} />;
 					default:
 						return null;
 				}

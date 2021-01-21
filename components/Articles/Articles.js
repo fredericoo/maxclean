@@ -45,7 +45,7 @@ const Articles = ({ perPage = 3, showDivider }) => {
 								size={2}
 								lead={post.lead}
 								source={moment(post.date).format("ll")}
-								href={post.slug && `/post/${post.slug}`}
+								href={post.slug && `/posts/${post.slug}`}
 								thumbnail={post.thumbnail}
 							/>
 						);
