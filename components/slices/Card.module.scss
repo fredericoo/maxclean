@@ -33,6 +33,20 @@
 	&__body {
 		grid-row: 2;
 		padding: 2rem calc(var(--gutter) * 2);
+		ul {
+			li {
+				&:before {
+					content: "•";
+					font-size: 1.5em;
+
+					width: 0.6em;
+					display: inline-block;
+					color: var(--colour__accent);
+				}
+				padding-left: 1rem;
+				text-indent: -1em;
+			}
+		}
 	}
 
 	&__cta {

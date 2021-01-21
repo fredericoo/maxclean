@@ -3,9 +3,9 @@
 .body {
 	grid-column: grid-start / grid-end;
 	@include responsive($tablet-l) {
-		grid-column: col-2 / col-12;
+		grid-column: col-4 / col-10;
 	}
 	margin: 3rem 0;
-	text-align: center;
-	text-transform: uppercase;
+	// text-align: center;
+	// text-transform: uppercase;
 }
