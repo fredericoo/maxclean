@@ -17,4 +17,18 @@
 	h6 {
 		margin-bottom: 1rem;
 	}
+	ul {
+		li {
+			&:before {
+				content: "•";
+				font-size: 1.5em;
+
+				width: 0.6em;
+				display: inline-block;
+				color: var(--colour__accent);
+			}
+			padding-left: 1rem;
+			text-indent: -1em;
+		}
+	}
 }
